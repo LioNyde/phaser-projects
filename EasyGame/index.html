@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>Phaser Game</title>
-    <script src="js/phaser.min.js"></script>
+    <script src="js/phaser.js"></script>
   </head>
   <body>
     <script>
@@ -30,8 +30,11 @@
 
     function create ()
     {
-        this.add.image(400, 300, 'shooter');
+        this.add.image(0, 0, 'shooter').setOrigin(0, 0).setScale(.5);
     }
+    </script>
+    <script type="text/javascript" charset="utf-8" src="lol.js">
+      
     </script>
   </body>
 </html>
