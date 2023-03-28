@@ -12,10 +12,29 @@ class Scene2 extends Phaser.Scene {
     this.ship3 = this.add.image(config.width/2 +50, config.height/2, 'ship3')
     
     //image properties of phaser
-    this.ship1.setScale(3);
-    this.ship2.flipY = true;
-    this.ship3.angle += 10;
+    //this.ship1.setScale(3);
+    //this.ship2.flipY = true;
+    //this.ship3.angle += 10;
     
     this.add.text(20, 20, 'Playing Game', {font: '25px Arial',fill: 'Yellow'});
+  }
+  
+  update(){
+    this.moveShip(this.ship1, 1.5);
+    this.moveShip(this.ship2, 2);
+    this.moveShip(this.ship3, 2.4);
+  }
+  
+  moveShip(ship, speed){
+    ship.y += speed;
+    if(ship.y > config.height){
+      this.resetShipPos(ship);
+    }
+  }
+  
+  resetShipPos(ship){
+    ship.y = 0;
+    var randomX = Phaser.Math.Between(0, config.width);
+    ship.x = randomX;
   }
 }
